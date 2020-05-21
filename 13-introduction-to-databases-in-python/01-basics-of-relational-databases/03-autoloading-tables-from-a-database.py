@@ -15,8 +15,14 @@ autoload=True
 The engine to autoload with - in this case, engine.
 Print the details of census using the repr() function.
 '''
-# Import Table
-from sqlalchemy import Table
+# Import create_engine, MetaData, and Table
+from sqlalchemy import create_engine, MetaData, Table
+
+# Create engine: engine
+engine = create_engine('sqlite:///census.sqlite')
+
+# Create a metadata object: metadata
+metadata = MetaData()
 
 # Reflect census table from the engine: census
 census = Table('census', metadata, autoload=True, autoload_with=engine)
